@@ -37,7 +37,7 @@ int main() {
 
     return 0;
 }
-
+//  Câu 1: Tạo mảng dữ liệu
 void createDataArray(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n) {
     for (int i = 0; i < n; i++) {
         printf("Enter name: ");
@@ -46,14 +46,14 @@ void createDataArray(char name[][MAX_LENGTH], char description[][MAX_LENGTH], in
         scanf("%s", description[i]);
     }
 }
-
+//  Câu 3: Hiển thị mảng dữ liệu
 void displayDataArray(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n) {
     for (int i = 0; i < n; i++) {
         printf("Name: %s\n", name[i]);
         printf("Description: %s\n", description[i]);
     }
 }
-
+//  Câu 6: Tìm kiếm
 void search(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n, char searchName[]) {
     int found = 0;
     for (int i = 0; i < n; i++) {
@@ -68,7 +68,7 @@ void search(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n, char
         printf("Name not found\n");
     }
 }
-
+//  Câu 4: Thêm subject
 void addSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n) {
     if (*n < MAX_ENTRIES) {
         printf("Enter name you wanna add: ");
@@ -81,7 +81,7 @@ void addSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n)
     }
 }
 
-
+//  Câu 8: Xóa subject ở mảng theo tên cần tìm
 void deleteSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n) {
     char nameDelete[MAX_LENGTH];
     int found = -1;
