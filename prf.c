@@ -10,6 +10,7 @@ void createDataArray(char name[][MAX_LENGTH], char description[][MAX_LENGTH], in
 void displayDataArray(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n);
 void search(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n, char searchName[]);
 void addSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n);
+void deleteSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n);
 
 int main() {
     char name[MAX_ENTRIES][MAX_LENGTH];
@@ -28,7 +29,9 @@ int main() {
     search(name, description, n, nameSearch);
 
     addSubject(name, description, &n);
-    addSubject(name, description, &n);
+    displayDataArray(name, description, n);
+
+    deleteSubject(name, description, &n);
 
     displayDataArray(name, description, n);
 
@@ -68,12 +71,42 @@ void search(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int n, char
 
 void addSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n) {
     if (*n < MAX_ENTRIES) {
-        printf("Enter name: ");
+        printf("Enter name you wanna add: ");
         scanf("%s", name[*n]);
-        printf("Enter description: ");
+        printf("Enter description you wanna add: ");
         scanf("%s", description[*n]);
         (*n)++;
     } else {
         printf("Cannot add more subjects. Maximum entries reached.\n");
     }
 }
+
+
+void deleteSubject(char name[][MAX_LENGTH], char description[][MAX_LENGTH], int *n) {
+    char nameDelete[MAX_LENGTH];
+    int found = -1;
+    printf("Enter name to deleteL ");
+    scanf("%s", nameDelete);
+    // if (nameDelete == name[*n]){
+        for(int i = 0; i < *n; i++){
+            if(strcmp(name[i], nameDelete) == 0){
+                found = i;
+                break;
+            }
+        }
+        if (found != -1) {
+        for (int i = found; i < *n - 1; i++) {
+            strcpy(name[i], name[i + 1]);
+            strcpy(description[i], description[i + 1]); 
+        }  
+        (*n)--;
+            }
+        }   
+        
+
+
+        
+    
+    
+
+
